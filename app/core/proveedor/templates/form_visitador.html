@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %} Visitador-Formulario {% endblock title %}
+{% block content %}
+
+<div class="bloque">
+    <h1>Visitador</h1>
+    <div class="opciones">
+        <button id="nuevo" type="submit" class="btn btn-success">Nuevo</button>
+        <button id="listar" type="submit" class="btn btn-primary"><a href="/visitador">Lista</a></button>
+    </div>
+    <form class="formulario">
+        <div id="colspan-2">
+            <input type="number" class="form-control" id="id_visitador" placeholder="ID proveedor">
+        </div>
+        {% include 'persona.html' %}
+        <div>
+            <select id="proveedor_visitador" class="form-select">
+                <option selected>Proveedor de laboratorio</option>
+                <option>-----</option>
+                <option>Bayer</option>
+            </select>
+        </div>
+        <div id="opciones2">
+            <button id="guardar" type="submit" class="btn btn-success">Guardar</button>
+            <button id="eliminar" type="submit" class="btn btn-danger">Eliminar</button>
+        </div>
+    </form>
+</div>
+{% endblock content %}

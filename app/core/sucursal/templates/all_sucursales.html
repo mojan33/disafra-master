@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %} Sucursal-Listado {% endblock title %}
+{% block content %}
+<div class="container mt-5">
+
+    <h1 class="row align-items-center justify-content-center"> SUCURSALES</h1>
+    {% csrf_token %}
+    {% if messages %}
+        {% for msn in messages%}
+        <div class="alert alert-danger" role="alert">{{ msn }}</div>
+        {% endfor %}
+    {% endif %}
+    <div class="row col-12 justify-content-end mb-2">
+        <a class="btn btn-primary text-light col-md-2" href="{% url 'sucursal:addSucursal' %}">AGREGAR</a>
+    </div>
+    <table class="table table-striped table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th colspan="2">E-mail</th>
+            <th></th>
+            <th>Editar</th>
+            <th>Eliminar</th>
+        </tr>
+        {% for sucursal in object_list %}
+        <tr>
+            <td>{{sucursal.id_sucursal}}</td>
+            <td>{{sucursal.nombre}}</td>
+            <td colspan="2">{{sucursal.correo}}</td>
+            <td></td>
+            <td>
+                <a href="{% url 'sucursal:editSucursal' sucursal.id_sucursal %}" class="btn btn-ms btn-success">O</a>
+            </td>
+            <td>
+                <a href="{% url 'sucursal:deleteSucursal' sucursal.id_sucursal %}" class="btn btn-ms btn-danger">X</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock content %}

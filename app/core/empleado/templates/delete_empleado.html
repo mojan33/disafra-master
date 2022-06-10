@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %} Empleado-Eliminar {% endblock title %}
+{% block content %}
+<div class="container mt-5">
+<form method="POST">
+    {% csrf_token %}
+    <div class="row justify-content-center pt-5">
+        <h2 class="row justify-content-center align-items-center pb-4">¿Desea eliminar el empleado {{empleado.cod_empleado}} - {{ empleado.persona.nombre }}?</h2>
+        <div class="row justify-content-between col-5">
+            <button type="submit" class="btn btn-danger col-md-5">Sí</button>
+            <a href="{% url 'empleado:listEmpleado' %}" class="btn btn-primary col-md-5">Cancelar</a>
+        </div>
+    </div>
+</form>
+</div>
+{% endblock content %}

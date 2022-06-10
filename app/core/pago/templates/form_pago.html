@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %} Pago-Formulario {% endblock title %}
+{% block content %}
+
+<div class="bloque">
+    <h1>Pago</h1>
+    <div class="opciones">
+        <button id="nuevo" type="submit" class="btn btn-success">Nuevo</button>
+        <button id="listar" type="submit" class="btn btn-primary"><a href="/pago">Lista</a></button>
+    </div>
+    <form class="formulario">
+        <div>
+            <input type="number" class="form-control" id="num_pago" placeholder="Número de pago">
+        </div>
+        <div>
+            <input type="date" class="form-control" id="fecha_pago" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                title="Fecha de pago">
+        </div>
+        <textarea class="form-control" id="descripcion_pago" placeholder="Descripción"></textarea>
+        <div>
+            <input type="number" class="form-control" id="cantidad_pago" placeholder="Monto">
+        </div>
+        <div>
+            <select id="compra_pago" class="form-select">
+                <option selected>Número de compra</option>
+                <option>-----</option>
+                <option>001</option>
+                <option>002</option>
+            </select>
+        </div>
+        <div>
+            <select id="empleado_pago" class="form-select">
+                <option selected>Empleado</option>
+                <option>-----</option>
+                <option>0 - Amner Pérez</option>
+                <option>1 - Geovany Franco</option>
+            </select>
+        </div>
+        <div id="opciones2">
+            <button id="guardar" type="submit" class="btn btn-success">Guardar</button>
+            <button id="eliminar" type="submit" class="btn btn-danger">Eliminar</button>
+        </div>
+</div>
+{% endblock content %}

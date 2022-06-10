@@ -1,0 +1,150 @@
+.contenedor {
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main-container .contenedor h1 {
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+.main-container .contenedor .bloque {
+  width: 90%;
+  margin-top: 3rem;
+  transition: ease all 0.5s;
+}
+
+.main-container .contenedor .bloque .opciones {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+  display: flex;
+}
+
+.main-container .contenedor .bloque .opciones button {
+  width: 45%;
+  padding: 15px;
+  margin: 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.main-container .contenedor .bloque .formulario {
+  display: flex;
+  flex-flow: wrap row;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-container .contenedor .bloque .formulario div {
+  width: 45%;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+#colspan-2 {
+  width: 92%;
+}
+/* .main-container .contenedor .bloque .formulario select {
+  width: 40%;
+  height: 38px;
+  margin: 2px;
+  border: none;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+} */
+.main-container .contenedor .bloque .formulario .check1 {
+  width: 42%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.main-container .contenedor .bloque .formulario textarea {
+  width: 92%;
+  margin: 5px;
+}
+
+/*
+.main-container .contenedor .bloque .formulario .check1 label{
+margin: 2px;
+}
+
+.main-container .contenedor .bloque .formulario input[type='text'],
+input[type='date'],
+input[type='number'],
+
+
+.main-container .contenedor .bloque .opciones2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+*/
+
+#opciones2 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#opciones2 button {
+  width: 45%;
+  padding: 15px;
+  margin: 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+#nuevo {
+  background-color: rgb(0, 61, 153);
+}
+#nuevo:hover {
+  background-color: rgb(10, 108, 255);
+}
+#guardar {
+  background: rgb(0, 158, 26);
+}
+#guardar:hover {
+  background: rgb(1, 255, 44);
+}
+#listar {
+  background-color: rgb(0, 102, 85);
+}
+#listar:hover {
+  background-color: rgb(0, 199, 166);
+}
+#eliminar {
+  background-color: rgb(112, 0, 0);
+}
+#eliminar:hover {
+  background-color: rgb(204, 0, 0);
+}
+
+@media only screen and (max-width: 1000px) {
+  .main-container .contenedor .bloque {
+    width: 80%
+  }
+}
+@media only screen and (max-width: 800px) {
+  .main-container .contenedor .bloque {
+    width: 90%;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .main-container .contenedor .bloque {
+    width: 95%;
+  }
+  .main-container .contenedor .bloque .formulario .check1 input[type='radio'] {
+    margin: 5px;
+  }
+}

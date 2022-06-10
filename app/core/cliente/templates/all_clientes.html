@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %} Cliente-Listado {% endblock title %}
+{% block content %}
+<div class="container mt-5">
+    <h1 class="row align-items-center justify-content-center">CLIENTES</h1>
+    {% if msn %}
+        <div class="alert alert-success" role="alert">Registro eliminado exitosamente...</div>
+    {% endif %}
+    <div class="row col-12 justify-content-end mb-2">
+        <a class="btn btn-primary text-light col-md-2" href="{% url 'cliente:addCliente' %}">AGREGAR</a>
+    </div>
+    <table class="table table-striped table-dark">
+        <tr>
+            <th>NIT</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Dirección</th>
+            <th>Mayorista</th>
+            <th>Celular</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
+        </tr>
+        {% for cliente in object_list %}
+        <tr>
+            <td>{{cliente.nit_cliente}}</td>
+            <td>{{cliente.persona.nombre}}</td>
+            <td>{{cliente.persona.apellido}}</td>
+            <td>{{cliente.persona.direccion_id.direccion}}</td>
+            <td>{% if cliente.mayorista == True %} <input type="checkbox" checked disabled>{% endif %}</td>
+            <td>{{cliente.persona.telefono_num.num_telefono}}</td>
+            <td>
+                <a href="{% url 'cliente:editCliente' cliente.nit_cliente %}" class="btn btn-ms btn-success">O</a>
+            </td>
+            <td>
+                <a href="{% url 'cliente:deleteCliente' cliente.nit_cliente %}" class="btn btn-ms btn-danger">X</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock content %}

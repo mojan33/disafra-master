@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %} Empleado-Formulario {% endblock title %}
+{% block content %}
+
+<h1 class="row align-items-center justify-content-start">Empleado</h1>
+{% if form.errors %}
+    <div class="alert alert-danger" role="alert">
+    Error...
+    </div>
+{% endif %}
+<form method="POST">
+    <div class="form-group">
+    {% csrf_token %}
+    {% if msn %}
+
+    <div class="alert alert-success" role="alert">Registro exitoso...</div>
+    {% endif %}
+    </div>
+
+    <div class="row col-13 mb-1 justify-content-between">
+        <div class="form-group col-md-3">
+            <input type="number" class="form-control" name="cod_empleado" placeholder="ID">
+        </div>
+
+        <div class="form-group col-md-5">
+            <input type="password" class="form-control" name="pass_field" placeholder="Contraseña">
+        </div>
+        <div class="form-group col-md-4">
+            <select class="form-control" name="sucursal">
+                {% for sucursal in sucursales %}
+                <option value="{{sucursal.id_sucursal}}">
+                    {{sucursal.nombre}}
+                </option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group mb-3">
+        <input type="number" class="form-control" name="id_persona" hidden>
+    </div>
+
+    <div class="form-group mb-3">
+        <input type="text" class="form-control" name="nombre" placeholder="Nombre">
+    </div>
+
+    <div class="form-group mb-3">
+        <input type="text" class="form-control" name="apellido" placeholder="Apellido">
+    </div>
+
+    <div class="row col-13 mb-3 justify-content-between">
+        <div class="form-group col-md-6">
+            <input type="email" class="form-control" name="correo" placeholder="E-mail">
+        </div>
+        <div class="form-group col-md-6">
+            <select class="form-control" name="puesto">
+                {% for puesto in puestos %}
+                <option value="{{puesto.id_puesto}}">
+                    {{puesto.nombre}}
+                </option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <div class="row col-13 mb-3 justify-content-between">
+    <div class="form-group col-md-6">
+        <input type="date" class="form-control" name="fecha_nacimiento">
+    </div>
+
+    <div class="form-group col-md-6">
+        <input type="number" class="form-control" name="edad" placeholder="Edad">
+    </div>
+    </div>
+
+    <div class="row col-13 mb-3 justify-content-between">
+        <div class="form-group col-md-6">
+            <input type="text" class="form-control" name="num_telefono" placeholder="(+502) 0000-0000">
+        </div>
+
+        <div class="form-group col-md-6">
+            <select class="form-control" name="tipo_telefono">
+                {% for tipo in tipoTelefono %}
+                <option value="{{tipo.id_tipo_telefono}}">
+                    {{tipo.tipo}}
+                </option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group mb-3">
+        <input type="number" class="form-control" name="id_direccion" hidden>
+    </div>
+
+    <div class="form-group mb-3">
+        <input type="text" class="form-control" name="direccion" placeholder="Direccion">
+    </div>
+
+    <div class="form-group mb-3">
+        <textarea class="form-control" name="referencia" rows="3" placeholder="Referencia"></textarea>
+    </div>
+    <div class="row col-13 mb-3 justify-content-between">
+    <div class="form-group col-md-6">
+        <select class="form-control">
+            {% for departamento in departamentos %}
+            <option value="{{departamento.id_departamento}}">
+                {{departamento.departamento}}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="form-group col-md-6">
+        <select class="form-control" name="municipio">
+            {% for municipio in municipios %}
+            <option value="{{municipio.id_municipio}}">
+                {{municipio.municipio}}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+    </div>
+
+
+    <div class="row justify-content-center col-13">
+        <div class="row justify-content-between mt-3 col-md-13">
+            <button id="guardar" type="submit" class="btn btn-success col-md-3 text-light">Guardar</button>
+            <button id="eliminar" type="button" class="btn btn-danger col-md-3 text-light">Eliminar</button>
+            <a id="listar" class="btn btn-primary col-md-3 text-light" href="{% url 'empleado:listEmpleado' %}">Lista</a>
+        </div>
+    </div>
+</form>
+
+
+{% endblock content %}

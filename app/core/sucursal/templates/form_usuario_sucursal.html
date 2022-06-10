@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %} Usuario de Sucursal-Formulario {% endblock title %}
+{% block content %}
+<div style="margin-top: 4rem;">
+    <form>
+        <label for="usuario_sucursal">Código de empleado:</label>
+        <input type="text" id="usuario_sucursal">
+        <label for="contra_sucursal">Contraseña:</label>
+        <input type="password" id="contra_sucursal">
+        <label for="contra_confirm_sucursal">Confimar contraseña:</label>
+        <input type="password" id="contra_confirm_sucursal">
+        <label for="activo_sucursal">Activo:</label>
+        <input type="checkbox" id="activo_sucursal">
+        {% include 'persona.html' %}
+        <label for="sucursal_usuario">Sucursal:</label>
+        <select id="sucursal_usuario">
+            <option>-----</option>
+            <option>CH</option>
+            <option>CH2</option>
+        </select>
+        <h3>Permisos:</h3>
+        <label for="permiso_sucursal">x-permiso:</label>
+        <input type="checkbox" id="permiso_sucursal">
+        <button>Guardar</button>
+    </form>
+</div>
+{% endblock content %}
